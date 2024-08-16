@@ -23,6 +23,7 @@ function App() {
                 subreddit: post.data.subreddit_name_prefixed,
                 selftext: post.data.selftext,
                 url: `https://www.reddit.com${post.data.permalink}`,
+                imageUrl: post.data.thumbnail && post.data.thumbnail.startsWith('http') ? post.data.thumbnail : null,  // Adding imageUrl
             }));
 
             setPosts(posts);
