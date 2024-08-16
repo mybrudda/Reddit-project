@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import './App.css';
+import Header from './components/Header';
+import PostDetail from './components/PostDetail';
+import PostList from './components/PostList';
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [posts, setPosts] = useState([]);
+    const [selectedPost, setSelectedPost] = useState(null);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const handleSearch = async (query) => {
+        const url = `https://www.reddit.com/search.json?q=${encodeURIComponent(query)}&sort=relevance`;
+
+        try {
+            const response = await fetch(url, {
+                headers: { 'User-agent': 'your-app-name' }
+            });
+            const data = await response.json();
+
+            const posts = data.data.children.map((post) => ({
+                id: post.data.id,
+                title: post.data.title,
+                subreddit: post.data.subreddit_name_prefixed,
+                selftext: post.data.selftext,
+                url: `https://www.reddit.com${post.data.permalink}`,
+            }));
+
+            setPosts(posts);
+            setSelectedPost(null);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
+    const handleSelectPost = (post) => {
+        setSelectedPost(post);
+    };
+
+    const handleBack = () => {
+        setSelectedPost(null);
+    };
+
+    return (
+        <div className="App">
+            <Header onSearch={handleSearch} />
+            {selectedPost ? (
+                <PostDetail post={selectedPost} onBack={handleBack} />
+            ) : (
+                <PostList posts={posts} onSelectPost={handleSelectPost} />
+            )}
+        </div>
+    );
 }
 
-export default App
+export default App;

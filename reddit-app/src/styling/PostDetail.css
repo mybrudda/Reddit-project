@@ -1,0 +1,32 @@
+.post-detail-parent {
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+.post-detail {
+  width: 60%;
+}
+.post-detail video {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+
+.post-detail iframe {
+  width: 100%;
+  height: 315px;
+  margin: 20px 0;
+}
+
+.post-detail a {
+  display: inline-block;
+  margin-top: 20px;
+  color: #ff7053;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.post-detail a:hover {
+  text-decoration: underline;
+}
