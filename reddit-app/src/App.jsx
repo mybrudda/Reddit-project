@@ -10,22 +10,41 @@ function App() {
 
     const handleSearch = async (query) => {
         const url = `https://www.reddit.com/search.json?q=${encodeURIComponent(query)}&sort=relevance`;
-
+    
         try {
             const response = await fetch(url, {
                 headers: { 'User-agent': 'your-app-name' }
             });
             const data = await response.json();
+    
+            const posts = data.data.children.map((post) => {
+                const postData = post.data;
+                let videoUrl = null;
+    
+                // Check if the post contains video data
+                if (postData.media && postData.media.reddit_video) {
+                    videoUrl = postData.media.reddit_video.fallback_url;
+                } else if (postData.secure_media && postData.secure_media.reddit_video) {
+                    videoUrl = postData.secure_media.reddit_video.fallback_url;
+                }
 
-            const posts = data.data.children.map((post) => ({
-                id: post.data.id,
-                title: post.data.title,
-                subreddit: post.data.subreddit_name_prefixed,
-                selftext: post.data.selftext,
-                url: `https://www.reddit.com${post.data.permalink}`,
-                imageUrl: post.data.thumbnail && post.data.thumbnail.startsWith('http') ? post.data.thumbnail : null,  // Adding imageUrl
-            }));
-
+                // Calculate the time since the post was created
+                const postDate = new Date(postData.created_utc * 1000);
+    
+                return {
+                    id: postData.id,
+                    title: postData.title,
+                    subreddit: postData.subreddit_name_prefixed,
+                    selftext: postData.selftext,
+                    url: `https://www.reddit.com${postData.permalink}`,
+                    imageUrl: postData.thumbnail && postData.thumbnail.startsWith('http') ? postData.thumbnail : null,
+                    videoUrl: videoUrl,
+                    author: postData.author,  // Adding who posted
+                    created_at: postDate.toLocaleString(),  // Adding when it was posted
+                    num_comments: postData.num_comments,  // Adding number of comments
+                };
+            });
+    
             setPosts(posts);
             setSelectedPost(null);
         } catch (error) {

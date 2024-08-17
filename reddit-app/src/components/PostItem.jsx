@@ -1,4 +1,5 @@
 import React from "react";
+import { FaCommentAlt } from "react-icons/fa"; // Import the comment icon from react-icons
 import defaultImage from "../assets/reddit-image.webp";
 import "../styling/PostItem.css";
 
@@ -13,8 +14,18 @@ function PostItem({ post, onClick }) {
         alt={post.title} 
         className={isDefaultImage ? "post-image default-image" : "post-image"} 
       />
-      <h2>{post.title}</h2>
-      <p>{post.subreddit}</p>
+      <div className="post-content">
+        <h2>{post.title}</h2>
+        <p className="post-meta">
+          Posted by <span className="post-author">{post.author}</span> on{" "}
+          <span className="post-date">{post.created_at}</span>
+        </p>
+        <p className="subreddit">{post.subreddit}</p>
+        <div className="post-footer">
+          <FaCommentAlt className="comment-icon" />
+          <span className="comment-count">{post.num_comments} comments</span>
+        </div>
+      </div>
     </div>
   );
 }
