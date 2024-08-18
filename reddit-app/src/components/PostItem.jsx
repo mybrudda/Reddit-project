@@ -9,13 +9,13 @@ function PostItem({ post, onClick }) {
   return (
     <div className="post-item" onClick={onClick}>
       {/* Apply a different class if it's the default image */}
+      <h2>{post.title}</h2>
       <img 
         src={post.imageUrl || defaultImage} 
         alt={post.title} 
         className={isDefaultImage ? "post-image default-image" : "post-image"} 
       />
       <div className="post-content">
-        <h2>{post.title}</h2>
         <p className="post-meta">
           Posted by <span className="post-author">{post.author}</span> on{" "}
           <span className="post-date">{post.created_at}</span>

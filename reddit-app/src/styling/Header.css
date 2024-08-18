@@ -1,44 +1,41 @@
 .header {
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  width: 100%; 
-  background-color: #ff4500;
-  padding: 10px 20px; 
+  padding: 20px; 
+  background-color: #5e5e5e;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+h1{
+  margin: 15px;
+}
+
+
+
+.search-form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 1000; 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-  box-sizing: border-box; 
+  justify-content: center;
 }
 
-.header form {
-  padding: 10px;
-}
-
-.header h1 {
-  color: white;
-  margin: 0;
-}
-
-.header form {
-  display: flex;
-  flex-grow: 1; 
-  justify-content: flex-end; 
-}
-
-.header input {
-  padding: 8px;
+input[type="text"] {
+  padding: 8px;  
   font-size: 16px;
-  margin-right: 8px;
-  border: none;
+  border: 2px solid #ddd;
   border-radius: 4px;
-  width: 200px; 
+  width: 300px;
+  margin-right: 10px;
+  transition: border-color 0.3s;
 }
 
-.header button {
-  padding: 8px 16px;
+input[type="text"].input-invalid {
+  border-color: red;
+}
+
+button {
+  padding: 8px 12px;  
   font-size: 16px;
   background-color: #0079d3;
   color: white;
@@ -47,12 +44,6 @@
   cursor: pointer;
 }
 
-.header button:hover {
+button:hover {
   background-color: #005999;
-}
-
-
-body {
-  padding-top: 80px; 
-  margin: 0;
 }

@@ -4,7 +4,7 @@
 
 .post-item {
   padding: 20px;
-  margin: 15px 0;
+  margin: 10px;
   border: 1px solid #e0e0e0;
   width: 100%; 
   max-width: 600px; 
@@ -29,7 +29,8 @@
 }
 
 .post-item img.post-image {
-  width: 100%;              
+  width: 100%;             
+  color: rgb(74, 145, 151);
   height: auto;             
   object-fit: cover;       
   border-radius: 8px;       
