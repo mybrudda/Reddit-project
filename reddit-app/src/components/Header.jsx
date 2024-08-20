@@ -25,15 +25,16 @@ function Header({ onSearch }) {
   return (
     <header className="header">
       <h1>Reddit</h1>
-      <form onSubmit={handleSubmit} className="search-form">
+      <form onSubmit={handleSubmit} className="search-form" id="searchForm">
         <input
+          id="inputfield"
           type="text"
           value={query}
           onChange={handleInputChange}
           placeholder="Search Reddit"
           className={isInputInvalid ? "input-invalid" : ""}
         />
-        <button type="submit">Search</button>
+        <button id="button" type="submit">Search</button>
       </form>
     </header>
   );

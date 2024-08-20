@@ -1,0 +1,38 @@
+.comments-section {
+  margin-top: 20px;
+  width: 100%;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.comments-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.comment-icon {
+  margin-right: 8px;
+  color: #555;
+}
+
+.comment-count {
+  color: #555;
+}
+
+.comments-list {
+  margin-top: 15px;
+}
+
+.comment {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #e6e6e6;
+  border-radius: 4px;
+}
+
+.comment .comment-body {
+  margin: 0;
+  font-size: 1.05em;
+}

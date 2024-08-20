@@ -1,9 +1,8 @@
 import React from "react";
 import "../styling/PostDetail.css";
+import CommentsSection from "./CommentSection";
 
 function PostDetail({ post, onBack }) {
-  console.log(post);
-  
   const title = post.title;
   const description = post.selftext || "No content available";
   const url = post.url;
@@ -24,11 +23,12 @@ function PostDetail({ post, onBack }) {
           <p>No video available</p>
         )}
         <a href={url} target="_blank" rel="noopener noreferrer">View on Reddit</a>
+
+        <CommentsSection postUrl={url} numComments={post.num_comments} />
       </div>
+      
     </div>
   );
 }
 
 export default PostDetail;
-
-
