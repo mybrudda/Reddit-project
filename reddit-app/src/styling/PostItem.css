@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -11,9 +13,9 @@
   border-radius: 8px;
   cursor: pointer;
   background-color: #fafafa;
-  display: flex;           
-  flex-direction: column;  
-  overflow: hidden; 
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
@@ -28,21 +30,21 @@
 }
 
 .post-item img.post-image {
-  width: 100%;             
+  width: 100%;
   color: rgb(74, 145, 151);
-  height: auto;             
-  object-fit: cover;       
-  border-radius: 8px;       
-  margin-bottom: 15px;     
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
 }
 
 .post-item img.default-image {
-  width: 50%;              
-  max-width: 180px;        
-  height: auto;            
-  object-fit: contain;     
-  margin: 0 auto 15px;     
-  display: block;          
+  width: 50%;
+  max-width: 180px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto 15px;
+  display: block;
 }
 
 .post-item h2 {
@@ -65,14 +67,14 @@
 .post-author {
   font-weight: bold;
   color: #2a30f8;
-  margin-right: auto; 
+  margin-right: auto;
   font-size: 16px;
 }
 
 .post-date {
   font-style: italic;
   color: #2e2e2e;
-  margin-left: auto; 
+  margin-left: auto;
 }
 
 .post-footer {
@@ -91,5 +93,5 @@
 
 .comment-count {
   font-size: 0.9em;
-  color: #030303;
+  color: #4c4c4c;
 }

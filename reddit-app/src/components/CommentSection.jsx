@@ -7,7 +7,7 @@ function CommentsSection({ postUrl, numComments }) {
   const [commentsLoaded, setCommentsLoaded] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showComments, setShowComments] = useState(false);
-  const [displayCount, setDisplayCount] = useState(10); // Number of comments to display
+  const [displayCount, setDisplayCount] = useState(10);
 
   const fetchComments = async () => {
     if (showComments) {
@@ -24,7 +24,7 @@ function CommentsSection({ postUrl, numComments }) {
     try {
       const response = await fetch(`${postUrl}.json`);
       const data = await response.json();
-      const commentsData = data[1].data.children.map(comment => ({
+      const commentsData = data[1].data.children.map((comment) => ({
         id: comment.data.id,
         author: comment.data.author,
         body: comment.data.body,
@@ -40,7 +40,6 @@ function CommentsSection({ postUrl, numComments }) {
     }
   };
 
-  // Slice comments to show only the first 'displayCount' comments
   const displayedComments = comments.slice(0, displayCount);
 
   return (
@@ -54,9 +53,11 @@ function CommentsSection({ postUrl, numComments }) {
 
       {showComments && commentsLoaded && (
         <div className="comments-list">
-          {displayedComments.map(comment => (
+          {displayedComments.map((comment) => (
             <div key={comment.id} className="comment">
-              <p><strong>{comment.author}</strong></p>
+              <p>
+                <strong>{comment.author}</strong>
+              </p>
               <p className="comment-body">{comment.body}</p>
             </div>
           ))}

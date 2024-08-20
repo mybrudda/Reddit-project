@@ -34,7 +34,9 @@ function Header({ onSearch }) {
           placeholder="Search Reddit"
           className={isInputInvalid ? "input-invalid" : ""}
         />
-        <button id="button" type="submit">Search</button>
+        <button id="button" type="submit">
+          Search
+        </button>
       </form>
     </header>
   );

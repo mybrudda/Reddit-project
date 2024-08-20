@@ -22,11 +22,12 @@ function PostDetail({ post, onBack }) {
         ) : (
           <p>No video available</p>
         )}
-        <a href={url} target="_blank" rel="noopener noreferrer">View on Reddit</a>
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          View on Reddit
+        </a>
 
         <CommentsSection postUrl={url} numComments={post.num_comments} />
       </div>
-      
     </div>
   );
 }

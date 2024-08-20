@@ -1,5 +1,5 @@
 .header {
-  padding: 20px; 
+  padding: 20px;
   background-color: #5e5e5e;
   text-align: center;
   width: 100%;
@@ -9,11 +9,9 @@
   z-index: 1;
 }
 
-h1{
+h1 {
   margin: 15px;
 }
-
-
 
 .search-form {
   display: flex;
@@ -21,7 +19,7 @@ h1{
 }
 
 input[type="text"] {
-  padding: 8px;  
+  padding: 8px;
   font-size: 16px;
   border: 2px solid #ddd;
   border-radius: 4px;
@@ -35,7 +33,7 @@ input[type="text"].input-invalid {
 }
 
 button {
-  padding: 8px 12px;  
+  padding: 8px 12px;
   font-size: 16px;
   background-color: #0079d3;
   color: white;
