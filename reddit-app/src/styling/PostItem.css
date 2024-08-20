@@ -6,14 +6,13 @@
   padding: 20px;
   margin: 10px;
   border: 1px solid #e0e0e0;
-  width: 100%; 
-  max-width: 600px; 
+  width: 100%;
+  max-width: 600px;
   border-radius: 8px;
   cursor: pointer;
   background-color: #fafafa;
   display: flex;           
   flex-direction: column;  
-  align-items: flex-start; 
   overflow: hidden; 
   transition: background-color 0.3s, box-shadow 0.3s;
 }
@@ -65,12 +64,15 @@
 
 .post-author {
   font-weight: bold;
-  color: #444;
+  color: #2a30f8;
+  margin-right: auto; 
+  font-size: 16px;
 }
 
 .post-date {
   font-style: italic;
-  color: #999;
+  color: #2e2e2e;
+  margin-left: auto; 
 }
 
 .post-footer {
@@ -84,10 +86,10 @@
 
 .comment-icon {
   margin-right: 8px;
-  color: #555;
+  color: #5f5f5f;
 }
 
 .comment-count {
   font-size: 0.9em;
-  color: #555;
+  color: #030303;
 }

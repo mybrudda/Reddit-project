@@ -16,10 +16,10 @@ function PostItem({ post, onClick }) {
         className={isDefaultImage ? "post-image default-image" : "post-image"} 
       />
       <div className="post-content">
-        <p className="post-meta">
-          Posted by <span className="post-author">{post.author}</span> on{" "}
-          <span className="post-date">{post.created_at}</span>
-        </p>
+        <div className="post-meta">
+          <p >Posted by <span className="post-author">{post.author}</span></p>
+          <p className="post-date">{post.created_at}</p>
+        </div>
         <p className="subreddit">{post.subreddit}</p>
         <div className="post-footer">
           <FaCommentAlt className="comment-icon" />
